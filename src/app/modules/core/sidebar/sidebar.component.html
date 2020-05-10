@@ -1,0 +1,22 @@
+<div class="sidebar flex flex-col p-10 pl-14 pr-14">
+    <div class="sidbear-header mb-5">
+        <app-header></app-header>
+    </div>
+    <div class="sidebar-menu mb-10">
+        <app-app-menu></app-app-menu>
+    </div>
+    <div class="sidebar-magnets text-gray-900 overflow-y-scroll w-full ml-3">
+        <ul *ngFor="let cat of categories">
+            <li class="text-2xl">{{cat.name}}</li>
+            <div *ngIf="cat.magnets">
+                <ul *ngIf="cat.magnets.length > 0" class="m-3 mb-5">
+
+                    <li *ngFor="let magnet of cat.magnets" class="magnet-item-title mb-1 leading-loose text-black px-2 hover:bg-purple-700 hover:text-white rounded">
+                        <i [ngClass]="'text-purple-500 mr-2 fas fa-'+magnet.icon"></i>
+                        <a [routerLink]="['/magnets/'+magnet.id]" class="">{{magnet.title}}</a>
+                    </li>
+                </ul>
+            </div>
+        </ul>
+    </div>
+</div>

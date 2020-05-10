@@ -1,0 +1,9 @@
+<div class="h-24 w-full flex flex-wrap justify-around overflow-scroll">
+    <span *ngFor="let icon of icons"
+        [ngClass]="{'bg-white text-purple-700 hover:bg-purple-300':theSelectedIcon != icon, 'bg-purple-700 text-white':theSelectedIcon == icon}"
+        (click)="onSelectIcon(icon)">
+        <i [ngClass]="'p-3 fas fa-'+icon">
+
+        </i>
+    </span>
+</div>

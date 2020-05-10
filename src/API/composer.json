@@ -1,0 +1,23 @@
+{
+    "name": "frnkq/fridgeboard",
+    "type": "project",
+    "require": {
+        "itsgoingd/clockwork": "^4.1",
+        "slim/slim": "^4.5",
+        "slim/psr7": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Franco Canevali",
+            "email": "francocanevali@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Middleware\\": "src/Middleware/",
+            "Controllers\\": "src/Controllers/",
+            "Routes\\": "src/Routes/",
+            "Files\\":  "src/Files/"
+        }
+    }
+}

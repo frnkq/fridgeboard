@@ -1,0 +1,68 @@
+<form [formGroup]="magnetForm" (submit)="upsertMagnet()">
+    <div class="h-screen mt-64 bg-white">
+
+        <div class="max-w-sm rounded overflow-hidden shadow-2xl p-5">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2 border-b border-b-4 border-purple-500 mb-5">
+                    <input
+                        class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                        type="text" placeholder="Magnet Title" aria-label="Magnet Title" formControlName="title"
+                        autofocus>
+                </div>
+                <p class="text-gray-700 text-base border-b border-b-4 border-purple-500">
+                    <textarea
+                        class="h-56 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 leading-relaxed focus:outline-none"
+                        type="text" placeholder="Magnet content" aria-label="Full name"
+                        formControlName="content"></textarea>
+                </p>
+            </div>
+            <div class="px-6 flex justify-between items-center">
+                <div class="">
+
+                    <span class="mr-2">Pinned</span> <input type="checkbox" formControlName="isPinned">
+                </div>
+
+                <div *ngIf="!magnet" class="inline-block relative">
+                    <select formControlName="category"
+                        class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500  py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                        <option selected hidden>Uncategorized</option>
+                        <option *ngFor="let cat of categories" [ngValue]="cat.id">
+                            {{cat.name}}
+                        </option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="px-6">
+                <app-icons (selectedIcon)="onSelectedIcon($event)"></app-icons>
+            </div>
+
+
+
+            <div class="px-6 py-4">
+            </div>
+            <div class="flex justify-between px-6">
+                <button type="button" (click)="exitCreation()"
+                    class="bg-purple-200 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded">
+                    Cancel
+                </button>
+                <button *ngIf="!magnet" type="button" (click)="upsertMagnet()"
+                    class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                    Create
+                </button>
+                <button *ngIf="magnet" type="button" (click)="upsertMagnet()"
+                    class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                    Update
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+</form>

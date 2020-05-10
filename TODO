@@ -1,0 +1,7 @@
+Transition for magnet block/none/transparency (on magnets.component)
+Category crud
+
+
+>Refresh sidebar with new magnet / deleted magnet (deleted magnet /magnets/:id)
+>Delete category (checkbox=>delete magnets? if not, move them to "Uncategorized")
+>Make "Uncategorized" unremovable

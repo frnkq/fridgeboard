@@ -1,0 +1,22 @@
+<div class="w-full rounded overflow-hidden shadow-lg bg-white">
+  <div class="px-6 py-4">
+    <div class="font-bold text-2xl mb-4 flex justify-around items-center">
+      <div class="flex-1">
+        <small><i [ngClass]="'mr-2 text-purple-500 fas fa-'+magnet.icon"></i></small>
+        <a [routerLink]="['/magnets/'+magnet.id]" class="text-black px-2 hover:bg-purple-700 hover:text-white rounded">{{magnet.title}}</a>
+        <hr class="text-gray-300">
+      </div>
+    </div>
+    <p class="text-gray-700 text-base">
+      {{magnet.content}}
+    </p>
+  </div>
+  <div class="flex justify-between px-6 py-4 text-sm">
+    <span
+      class="border-2 border-solid border-purple-200 inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2">{{magnet.categoryName}}</span>
+    <button type="button" class="bg-purple-400 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+      (click)="onEditMagnet()">Edit</button>
+    <button type="button" class="bg-purple-200 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+      (click)="onDeleteMagnet()">Delete</button>
+  </div>
+</div>
